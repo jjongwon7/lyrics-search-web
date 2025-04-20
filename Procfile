@@ -1,0 +1,1 @@
+web: bash download_data.sh && gunicorn main:app
