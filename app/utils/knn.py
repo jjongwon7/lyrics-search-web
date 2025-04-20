@@ -1,7 +1,7 @@
 import numpy as np
-from app.data_loader import model, data_list, V1, V2, V3, Va
+from flask import current_app
 
-def knn_from_input_sentence(input_sentence, k=10):
+def knn_from_input_sentence(input_sentence, model, data_list, V1, V2, V3, Va, k=10):
     """
     입력 문장과 가장 유사한 상위 5개 가사 데이터 서치
     
@@ -35,7 +35,7 @@ def knn_from_input_sentence(input_sentence, k=10):
         knn_result.append([idx, s_max, s_mean, s_min])
     return knn_result
 
-def knn_result_to_html(knn_result):
+def knn_result_to_html(knn_result, data_list):
     """
     KNN 결과 리스트를 HTML 형식의 문자열로 변환
 

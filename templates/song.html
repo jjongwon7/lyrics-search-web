@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
-        <a href="{{ url_for('artist_page', artist_name=artist) }}">{{ artist }} 페이지로 돌아가기</a>
+        <a href="{{ url_for('artist.artist_page', artist_name=artist) }}">{{ artist }} 페이지로 돌아가기</a>
     
         <h1>{{ artist }} - {{ song }}</h1>
 
@@ -15,7 +15,7 @@
         <h2> 유사한 가사의 다른 곡 </h2>
 
         {% for t_i, t_artist_name, t_song_name, t_summary, sim in knn_songs %}
-            <a href="{{ url_for('song_page', artist_name=t_artist_name, song_name=t_song_name, idx=t_i) }}">{{ t_artist_name }} - {{ t_song_name }}</a><br>
+            <a href="{{ url_for('artist.song_page', artist_name=t_artist_name, song_name=t_song_name, idx=t_i) }}">{{ t_artist_name }} - {{ t_song_name }}</a><br>
             <p>{{ t_summary }}</p>
             <p>유사도 : {{ sim }}</p>
             <br>
