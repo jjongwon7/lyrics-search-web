@@ -19,7 +19,9 @@ root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 def preprocess_song_name(song_name):
     return song_name.split("(")[0].lower().strip(' ')
 
-def load_data():
+def load_data(app):
+    print("files in data : ", os.listdir('data'))
+    
     lyrics_summary_file_path = os.path.join(root_path, 'data', 'lyrics_summary.csv')
     lyrics_summary_df = pd.read_csv(lyrics_summary_file_path)
     
@@ -32,7 +34,6 @@ def load_data():
         emb_list_3 = pickle.load(f)
     with open(f"{root_path}/data/emb_list_all.pickle", 'rb') as f:
         emb_list_all = pickle.load(f)
-    
     # 3. load pre-computed knn_result data
     with open(f"{root_path}/data/knn_result.pickle", 'rb') as f:
         knn_result = pickle.load(f)
@@ -80,4 +81,14 @@ def load_data():
         artist_indices[artist_name].append(i)
     artist_indices = dict(artist_indices)
 
-    return model, data_list, artist_indices, V1, V2, V3, Va, knn_result
+    # return model, data_list, artist_indices, V1, V2, V3, Va, knn_result
+    # model, data_list, artist_indices, V1, V2, V3, Va, knn_result = load_data()
+    app.config['model'] = model
+    app.config['data_list'] = data_list
+    app.config['artist_indices'] = artist_indices
+    app.config['V1'] = V1
+    app.config['V2'] = V2
+    app.config['V3'] = V3
+    app.config['Va'] = Va
+    app.config['knn_result'] = knn_result
+    

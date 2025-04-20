@@ -18,8 +18,6 @@ def artist_page(artist_name):
     song_name_list = [data_list[i]['song_name'] for i in indices]
     artist_data = list(zip(indices, song_name_list))
 
-    print(artist_name)
-    print(artist_data)
     return render_template("artist.html", artist=artist_name, artist_data=artist_data)
 
 @artist_bp.route("/artist/<artist_name>/song/<song_name>/<idx>")
