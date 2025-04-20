@@ -1,1 +1,1 @@
-web: bash download_data.sh && gunicorn main:app
+web: bash download.sh && gunicorn main:app
