@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+__MACOSX/
+
+# Environment
+.env
+venv/
+.venv/
+
+# Data or models
+*.csv
+*.pkl
+*.h5
+*.db
+*.sqlite3
+/data/
+
+# PyCharm
+.idea/
