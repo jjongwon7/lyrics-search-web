@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <a href="/artists">전체 아티스트 페이지로 돌아가기</a>
+        <h2>{{ artist }}의 곡 목록</h2>
+        <ul>
+        {% for i, song in artist_data %}
+            <li><a href="{{ url_for('song_page', artist_name=artist, song_name=song, idx=i) }}">{{ song }}</a></li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>

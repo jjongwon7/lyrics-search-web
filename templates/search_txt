@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body>
+        <div class="prose">
+        <h2 class="text-2xl font-semibold text-gray-800">
+            입력한 문장과 최대한 비슷한 가사를 찾아볼게요!
+        </h2>
+        <p class="text-base text-gray-600">
+
+        <p>
+        <form method="post">
+            <input type="text" name="user_input" placeholder="(예시) 다시는 돌아오지 않을 젊음을 헛되이 낭비하지 말고 뜨겁게 살자" class="w-full sm:w-80 md:w-96 lg:w-[800px] h-12 px-4 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+            <!--
+                <button type="submit" class="btn btn-outline-success my-2 my-sm-0 border border-solid border-black rounded-2xl text-black">Go!</button>
+            -->
+
+        </form>
+        <p>{{ result | safe }}<p>
+
+        
+        <a href="/" class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"> 메인 페이지 </a>
+
+        </div>
+    </body>
+</html>
