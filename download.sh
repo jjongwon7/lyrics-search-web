@@ -1,13 +1,12 @@
 #!/bin/bash
+pip install gdown
 
 echo "data downloading..."
-
 mkdir -p data
-curl -L -o data/emb_list_1.pickle "$EMB_LIST_1_URL"
-curl -L -o data/emb_list_2.pickle "$EMB_LIST_2_URL"
-curl -L -o data/emb_list_3.pickle "$EMB_LIST_3_URL"
-curl -L -o data/emb_list_all.pickle "$EMB_LIST_ALL_URL"
-curl -L -o data/knn_result.pickle "$KNN_RESULT_URL"
-curl -L -o data/lyrics_summary.csv "$LYRICS_SUMMARY_URL"
-
+gdown --id "$FILE_ID_EMB_1" -O data/emb_list_1.pickle
+gdown --id "$FILE_ID_EMB_2" -O data/emb_list_2.pickle
+gdown --id "$FILE_ID_EMB_3" -O data/emb_list_3.pickle
+gdown --id "$FILE_ID_EMB_ALL" -O data/emb_list_all.pickle
+gdown --id "$FILE_ID_KNN_RESULT" -O data/knn_result.pickle
+gdown --id "$FILE_ID_LYRICS_SUMMARY" -O data/lyrics_summary.csv
 echo "download complete!"
