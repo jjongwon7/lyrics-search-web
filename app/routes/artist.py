@@ -26,10 +26,19 @@ def song_page(artist_name, song_name, idx):
     knn_result = current_app.config['knn_result']
     idx = int(idx)
     data = data_list[idx]
+    
+    lyrics = data['lyrics'].replace('\n', '<br>')
+    summary = data['summary_3'].replace('.', '<br>')
 
     knn_songs = []
     for i, max_sim, mean_sim, min_sim in knn_result[idx]:
         t_data = data_list[i]
         knn_songs.append([i, t_data['artist_name'], t_data['song_name'], t_data['summary_1'], max_sim])
     
-    return render_template("song.html", artist=artist_name, song=song_name, summary=data['summary_1'], knn_songs=knn_songs)
+    return render_template("song.html", 
+               artist=artist_name, 
+               song=song_name, 
+               summary=summary, 
+               lyrics=lyrics,
+               knn_songs=knn_songs
+                          )

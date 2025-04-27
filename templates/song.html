@@ -10,7 +10,14 @@
         <h1>{{ artist }} - {{ song }}</h1>
 
         <h2> 가사 요약 </h2>
-        <p>{{ summary }}<p>
+        <div style="background-color: #f0f0f0; color: #555555; padding: 10px; border-radius: 5px;">
+          <p>{{ summary | safe }}</p>
+        </div>
+
+        <h2> 전체 가사 </h2>
+        <div style="background-color: #f0f0f0; color: #555555; padding: 10px; border-radius: 5px;">
+          <p>{{ lyrics | safe }}</p>
+        </div>
 
         <h2> 유사한 가사의 다른 곡 </h2>
 

@@ -1,5 +1,5 @@
 import numpy as np
-from flask import current_app
+from flask import current_app, url_for
 
 def knn_from_input_sentence(input_sentence, model, data_list, V1, V2, V3, Va, k=10):
     """
@@ -48,10 +48,15 @@ def knn_result_to_html(knn_result, data_list):
     html_str = ''
     for idx, s_max, s_mean, s_min in knn_result:
         t_data = data_list[idx]
+        artist_name, song_name = t_data['artist_name'], t_data['song_name']
+        song_url = url_for('artist.song_page', artist_name=artist_name, song_name=song_name, idx=idx)
+
         pre_song_name = t_data['song_name']
         summary = t_data['summary_1'].strip("\n")
 
-        html_str += f"<b>{t_data['artist_name']} - {pre_song_name}</b><br>"
+        html_str += f"<b>{t_data['artist_name']} - {pre_song_name}</b>  "
+        html_str += f"""<a href="{song_url}">(상세)</a><br>"""
+        
         html_str += f"가사 요약 : {summary}<br>"
         html_str += f"입력 문장과의 유사도 : {s_max}<br>"
         html_str += "<br>"

@@ -16,8 +16,10 @@ def search_page():
     print('search_page_load_start')
     
     result = ""
+    user_input = ""
     if request.method == "POST":
         user_input = request.form["user_input"]
         result = knn_from_input_sentence(user_input, model, data_list, V1, V2, V3, Va)
         result = knn_result_to_html(result, data_list)
-    return render_template("search.html", result=result)
+
+    return render_template("search.html", result=result, input_sentence=user_input)
