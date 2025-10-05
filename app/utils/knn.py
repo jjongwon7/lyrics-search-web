@@ -52,12 +52,14 @@ def knn_result_to_html(knn_result, data_list):
         song_url = url_for('artist.song_page', artist_name=artist_name, song_name=song_name, idx=idx)
 
         pre_song_name = t_data['song_name']
-        summary = t_data['summary_1'].strip("\n")
+        summary_1 = t_data['summary_1'].strip("\n")
+        summary_3 = t_data['summary_3'].strip("\n").replace("\n","<br>")
 
         html_str += f"<b>{t_data['artist_name']} - {pre_song_name}</b>  "
         html_str += f"""<a href="{song_url}">(상세)</a><br>"""
         
-        html_str += f"가사 요약 : {summary}<br>"
-        html_str += f"입력 문장과의 유사도 : {s_max}<br>"
+        html_str += f"한줄 요약 : <span style='color: black;'>{summary_1}</span><br>"
+        html_str += f"상세 요약 : <span style='color: gray;'>{summary_3}</span><br>" 
+        html_str += f"입력 문장과의 유사도 : <span style='color: red;'>{s_max}</span><br>"
         html_str += "<br>"
     return html_str
