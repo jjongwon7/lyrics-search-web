@@ -79,6 +79,6 @@ def knn_result_to_json(knn_result, data_list):
             "song_url": song_url,
             "summary_1": summary_1,
             "summary_3": summary_3,
-            "similarity": float(s_max)
+            "similarity": round(s_max * 100)
         })
     return json_list
