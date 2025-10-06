@@ -63,3 +63,22 @@ def knn_result_to_html(knn_result, data_list):
         html_str += f"입력 문장과의 유사도 : <span style='color: red;'>{s_max}</span><br>"
         html_str += "<br>"
     return html_str
+
+def knn_result_to_json(knn_result, data_list):
+    json_list = []
+    for idx, s_max, s_mean, s_min in knn_result:
+        t_data = data_list[idx]
+        artist_name, song_name = t_data['artist_name'], t_data['song_name']
+        song_url = url_for('artist.song_page', artist_name=artist_name, song_name=song_name, idx=idx)
+        summary_1 = t_data['summary_1'].strip("\n")
+        summary_3 = t_data['summary_3'].strip("\n")
+
+        json_list.append({
+            "artist_name": artist_name,
+            "song_name": song_name,
+            "song_url": song_url,
+            "summary_1": summary_1,
+            "summary_3": summary_3,
+            "similarity": float(s_max)
+        })
+    return json_list
