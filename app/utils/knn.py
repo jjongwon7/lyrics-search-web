@@ -75,7 +75,7 @@ def knn_result_to_json(knn_result, data_list):
 
         json_list.append({
             "artist_name": artist_name,
-            "song_name": song_name,
+            "song_name": t_data['raw_song_name'],
             "song_url": song_url,
             "summary_1": summary_1,
             "summary_3": summary_3,

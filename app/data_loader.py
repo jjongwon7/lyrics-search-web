@@ -62,8 +62,7 @@ def load_data(app):
     
     # transform dataframe to list & drop duplicates (by preprocessed songname)
     lyrics_summary_df = lyrics_summary_df.rename(columns={'song_name': 'raw_song_name'})
-    #lyrics_summary_df['song_name'] = lyrics_summary_df['raw_song_name'].apply(preprocess_song_name)
-    lyrics_summary_df['song_name'] = lyrics_summary_df['raw_song_name']
+    lyrics_summary_df['song_name'] = lyrics_summary_df['raw_song_name'].apply(preprocess_song_name)
 
     artist_song_names = defaultdict(set) 
     data_list = [] 
